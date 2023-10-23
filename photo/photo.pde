@@ -6,6 +6,7 @@ int spread, cols, rows, num;
 int offset = 2;
 PImage img;
 PVector[] vectors;
+import processing.pdf.*;
 
 
 void setup() {
@@ -14,6 +15,7 @@ void setup() {
   frameRate(20);
   img = loadImage("photo.jpg");
   init();
+  beginRecord(PDF,"111.pdf");
 }
 
 
@@ -52,4 +54,8 @@ void draw() {
   if (col < 255)col += 0.5;
   else col = 0;
   for (Particle p : particles)p.run();
+}
+void keypressed(){
+  endRecord();
+  exit();
 }
